@@ -12,18 +12,18 @@ const getChannelStats = asyncHandler(async (req, res) => {
     try {
         // Get the total number of videos uploaded by the channel
         const totalVideos = await Video.countDocuments({ owner: channelId });
-        console.log(totalVideos);
+        // console.log(totalVideos);
 
         // Get the total number of subscribers for the channel
         const totalSubscribers = await Subscription.countDocuments({ channel: channelId });
-        console.log(totalSubscribers);
+        // console.log(totalSubscribers);
 
         // Get the total number of likes for the channel's videos
         const videoIds = await Video.find({ owner: channelId }).select("_id").then(docs => docs.map(doc => doc._id));
-        console.log(videoIds);
+        // console.log(videoIds);
         // Get the total number of likes for the channel's videos
         const totalLikes = await Like.countDocuments({ video:  videoIds  });
-        console.log(totalLikes);
+        // console.log(totalLikes);
         // Get the total number of views for the channel's videos
       
         const channelStats = {
@@ -34,7 +34,7 @@ const getChannelStats = asyncHandler(async (req, res) => {
         
         res.status(200).json(new ApiResponse(true, "Channel stats fetched successfully", channelStats));
     } catch (error) {
-        console.log(error);
+        // console.log(error);
         res.status(400).json(new ApiError(error))
     }
 })
