@@ -108,9 +108,9 @@ const getVideoById = asyncHandler(async (req, res) => {
     try {
         const { userId } = req.params;
 
-        console.log(userId);
+        // console.log(userId);
         const video = await Video.find({owner:userId})
-console.log(video);
+// console.log(video);
         if (!video) {
             throw new ApiError(404, 'Video not found')
         }
@@ -136,13 +136,13 @@ const updateVideo = asyncHandler(async (req, res) => {
       }
 
         const thumbnailLocalPath = req.file.path;
-        console.log(thumbnailLocalPath);
+        // console.log(thumbnailLocalPath);
         if (!thumbnailLocalPath) {
           throw new ApiError(400, 'thumbnail file is required');
         }
   
         const thumbnailFile = await uploadOnCloudinary(thumbnailLocalPath);
-        console.log(thumbnailFile);
+        // console.log(thumbnailFile);
   
         if (!thumbnailFile) {
           throw new ApiError(400, 'thumbnail file is required');
