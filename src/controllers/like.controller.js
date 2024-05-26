@@ -7,13 +7,14 @@ const countVideoLike = asyncHandler(async(req,res)=>{
     
     try {
         const {videoId} = req.params
-        console.log(videoId);
+        // console.log(videoId);
         const count = await Like.countDocuments({video:videoId})
         // console.log(count);
         res.status(200).json(new ApiResponse(true,"get the like cout", count))
         
     } catch (error) {
-        console.log(error);
+        // console.log(error);
+         res.status(400).json(ApiError("cant update successfully", error))
     }
 })
 const countCommentLike = asyncHandler(async(req,res)=>{
