@@ -29,7 +29,8 @@ const createTweet = asyncHandler(async (req, res) => {
 
         res.status(201).json(new ApiResponse(true, "Tweet created successfully", tweet));
     } catch (error) {
-        console.log(error);
+        // console.log(error);
+         res.status(400).json(ApiError("cant update successfully", error))
     }
 })
 const getTweets = asyncHandler(async (req, res) => {
