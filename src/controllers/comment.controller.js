@@ -9,14 +9,14 @@ const getVideoComments = asyncHandler(async (req, res) => {
     try {
         const { videoId } = req.params
         const { page = 1, limit = 10 } = req.query
-        console.log(videoId);
+         
         const videoComments = await Comment.find({ video: videoId })
             .populate("owner")
             .sort({ createdAt: -1 })
             .skip((page - 1) * limit)
             .limit(limit);
 
-        console.log(videoComments.length);
+       
 
         if (!videoComments.length) {
             throw new ApiError(400, "No comments found for this video");
@@ -58,14 +58,14 @@ const updateComment = asyncHandler(async (req, res) => {
 
         return res.status(200).json(new ApiResponse(true, "Comment updated successfully", updatedComment));
     } catch (error) {
-        return console.log(error);
+        return  (error);
     }
 })
 
 const deleteComment = asyncHandler(async (req, res) => {
     // TODO: delete a comment
     const { commentId } = req.params;
-    console.log(commentId);
+ 
 
     await Comment.findByIdAndDelete(commentId);
 
