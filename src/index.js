@@ -10,6 +10,10 @@ dotenv.config({
 
 connectDB()
 .then(() => {
+    
+app.get('/', (req, res) => {
+    res.send('products api running new deploy');
+});
     app.listen(process.env.PORT || 8000, () => {
         console.log(`⚙️ Server is running at port : ${process.env.PORT}`);
     })
