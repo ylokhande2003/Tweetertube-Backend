@@ -5,7 +5,7 @@ import cookieParser from "cookie-parser"
 const app = express()
 
 app.use(cors({
-    origin: 'https://shikshasankalp.onrender.com',
+    origin: 'https://shikshasankalp.onrender.com'|| 'http://localhost:5173/',
 }))
 
 app.use(express.json({limit: "16kb"}))
