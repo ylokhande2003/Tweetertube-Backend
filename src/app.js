@@ -4,7 +4,11 @@ import cookieParser from "cookie-parser"
 
 const app = express()
 
-app.use(cors())
+app.use(cors({
+    origin: 'https://665ebf604dcb48d1b11319c7--incomparable-stardust-31e43f.netlify.app',
+}
+  
+))
 
 app.use(express.json({limit: "16kb"}))
 app.use(express.urlencoded({extended: true, limit: "16kb"}))
