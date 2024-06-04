@@ -9,7 +9,7 @@ const app = express()
 
 app.use(cors({
     origin: [
-  'https://665ebf604dcb48d1b11319c7--incomparable-stardust-31e43f.netlify.app',
+  'https://665ee2fdb6fa89f697f591ff--peaceful-crostata-4eb0ed.netlify.app/',
   'http://localhost:5173'
 ]
 }
