@@ -11,7 +11,8 @@ app.use(cors({
     origin: [
   'https://6661918181dc9f07e9ad0d1c--idyllic-rabanadas-3ef716.netlify.app/',
   'http://localhost:5173'
-]
+],
+    credentials: true
 }
   
 ))
